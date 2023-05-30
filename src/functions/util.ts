@@ -136,7 +136,7 @@ export const fileTypeIcons = (ext: string): string => {
 }
 
 export const verificarExtensao = (nome: string) => {
-    let ext = nome.split(".").pop();
+    let ext = nome.split(".").pop() as string;
     if (ext.search(/xlsx|csv|png|jpeg|jpg|doc|docx|pdf|txt|ppt/) == -1)
         return false;
     else return true;
@@ -154,4 +154,8 @@ export const getCreditCardType = (accountNumber: any) => {
     else if (/^(34|37)/.test(accountNumber)) return "amex";
     else if (/^60/.test(accountNumber)) return "hipercard";
     else return ""
+}
+
+export const generateArray = (num: number) => {
+    return Array.from({ length: num }, (_, i) => i + 1);
 }
