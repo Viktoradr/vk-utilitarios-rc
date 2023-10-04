@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const newId = () => {
-    return uuidv4();
-}
+export const newId = () => uuidv4()
 
 export const request = (url: string, param: any, query: boolean = false) => {
     if (query) url += queryable(param);
@@ -20,8 +18,8 @@ export const isObjectEmpty = (obj: any) => {
     return Object.keys(obj).length === 0;
 }
 
-export const isNullOrEmpty = (str: string): boolean => {
-    return str == undefined || str == null || str == "" || str.trim() == "";
+export const isNullOrEmpty = (str: any): boolean => {
+    return str === undefined || str === null || str === "" || str.trim() == "";
 }
 
 export const isDateValid = (dateStr: any): boolean => {

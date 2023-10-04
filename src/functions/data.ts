@@ -3,15 +3,15 @@ import moment from 'moment';
 moment.locale('pt-br');
 
 export const getToday = (): moment.Moment => {
-    return moment();
+    return moment()
 }
 
 export const getCompetencia = (data: any): Date => {
-    return moment(moment(data).format("YYYY-MM-01")).toDate();
+    return moment(moment(data).format("YYYY-MM-01")).toDate()
 }
 
 export const getDataString = (data: any, format: string = "DD/MM/YYYY HH:mm"): string => {
-    return moment(data).format(format);
+    return moment(data).format(format)
 }
 
 export const getDateFromString = (dt: any, format: string = "DD/MM/YYYY") => {
@@ -41,41 +41,41 @@ export const subDay = (dt: any, days = 1): moment.Moment => {
 export const isDateSame = (dt1: any, dt2: any): boolean => {
     let dtx = moment.isMoment(dt1) ? dt1 : getDataString(dt1, "YYYY-MM-DD")
     let dty = moment.isMoment(dt2) ? dt2 : getDataString(dt2, "YYYY-MM-DD")
-    return moment(dtx).isSame(moment(dty));
+    return moment(dtx).isSame(moment(dty))
 }
 
 export const isDateAfter = (dt1: any, dt2: any): boolean => {
     let dtx = moment.isMoment(dt1) ? dt1 : getDataString(dt1, "YYYY-MM-DD")
     let dty = moment.isMoment(dt2) ? dt2 : getDataString(dt2, "YYYY-MM-DD")
-    return moment(dtx).isAfter(moment(dty));
+    return moment(dtx).isAfter(moment(dty))
 }
 
 export const isDateSameAfter = (dt1: any, dt2: any): boolean => {
-    return moment(dt1).isSameOrAfter(moment(dt2));
+    return moment(dt1).isSameOrAfter(moment(dt2))
 }
 
 export const isDateBefore = (dt1: any, dt2: any): boolean => {
-    return moment(dt1).isBefore(moment(dt2));
+    return moment(dt1).isBefore(moment(dt2))
 }
 
 export const isDateSameBefore = (dt1: any, dt2: any): boolean => {
-    return moment(dt1).isSameOrBefore(moment(dt2));
+    return moment(dt1).isSameOrBefore(moment(dt2))
 }
 
 export const diffBetweenDays = (dt1: any, dt2: any): number => {
-    const a = moment(dt1);
-    const b = moment(dt2);
-    return a.diff(b, 'days');
+    const a = moment(dt1)
+    const b = moment(dt2)
+    return a.diff(b, 'days')
 }
 
 export const getCompetenciaAtual = (): any => {
-    let firstDay = moment().clone().startOf('month');
-    let endOfmonth = moment().clone().endOf('month').subtract(1, "days");
+    const firstDay = moment().clone().startOf('month')
+    const endOfmonth = moment().clone().endOf('month').subtract(1, "days")
 
     return {
         inicio: firstDay.toDate(),
         fim: endOfmonth.toDate(),
-    };
+    }
 }
 
 export const calculateWeekDays = (value: Date) => {
