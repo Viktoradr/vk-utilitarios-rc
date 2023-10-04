@@ -1,0 +1,16 @@
+export declare const newId: () => string;
+export declare const request: (url: string, param: any, query?: boolean) => string;
+export declare const queryable: (obj: any) => string;
+export declare const isObjectEmpty: (obj: any) => boolean;
+export declare const isNullOrEmpty: (str: any) => boolean;
+export declare const isDateValid: (dateStr: any) => boolean;
+export declare const isEmailValid: (email: string) => boolean;
+export declare const isBirthValid: (data: string) => boolean;
+export declare const isCpfValid: (cpf: string) => boolean;
+export declare const limparString: (str: string) => string;
+export declare const limparNumero: (str: string) => string;
+export declare const filter: (value: any, lista: any[], header: any[]) => any[];
+export declare const fileTypeIcons: (ext: string) => string;
+export declare const verificarExtensao: (nome: string) => boolean;
+export declare const getCreditCardType: (accountNumber: any) => "" | "elo" | "mastercard" | "visa" | "amex" | "hipercard";
+export declare const generateArray: (num: number) => number[];

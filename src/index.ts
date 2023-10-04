@@ -1,7 +1,6 @@
-import { getToday } from "./functions/data";
-import { generateArray } from "./functions/util";
+import * as util from "./functions/util";
 
-console.log(generateArray(30))
+console.log(util.generateArray(30))
 
 /*
 apos criar a conta no npm

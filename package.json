@@ -1,17 +1,28 @@
 {
-  "name": "utilitarios",
+  "name": "vk-utilitarios-rc",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Projeto onde se encontra utilitários para máscaras, datas, formulário e muito mais",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --declaration",
+    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "máscara",
+    "mask",
+    "data",
+    "form",
+    "clean"
+  ],
+  "author": "viktoradr",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.8.2",
     "@types/uuid": "^9.0.1",
-    "typescript": "^5.0.4"
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "moment": "^2.29.4",
