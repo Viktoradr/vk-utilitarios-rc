@@ -4,7 +4,7 @@ moment.locale('pt-br');
 
 export const getToday = (): moment.Moment => moment()
 
-export const getCompetencia = (data: any): Date => {
+export const getFirstDateOfMonth = (data: any): Date => {
     return moment(moment(data).format("YYYY-MM-01")).toDate()
 }
 

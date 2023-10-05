@@ -28,7 +28,7 @@ const Util = __importStar(require("./util"));
 const mascara_DTCartao = (data) => {
     if (!data || data.trim() == "")
         return "";
-    return Util.cleanNumero(data)
+    return Util.cleanNumber(data)
         .substring(0, 6)
         .replace(/(\d{2})(\d{4})/gi, "$1/$2");
 };
@@ -36,7 +36,7 @@ exports.mascara_DTCartao = mascara_DTCartao;
 const mascara_DT = (data) => {
     if (!data || data.trim() == "")
         return "";
-    return Util.cleanNumero(data)
+    return Util.cleanNumber(data)
         .substring(0, 10)
         .replace(/(\d{2})(\d{2})(\d{4})/gi, "$1/$2/$3");
 };
@@ -44,7 +44,7 @@ exports.mascara_DT = mascara_DT;
 const mascara_TEL = (tel) => {
     if (!tel || tel.trim() == "")
         return "";
-    return Util.cleanNumero(tel)
+    return Util.cleanNumber(tel)
         .substring(0, 12)
         .replace(/(\d{2})(\d{8,9})/gi, "($1) $2");
 };
@@ -52,7 +52,7 @@ exports.mascara_TEL = mascara_TEL;
 const mascara_CPF = (cpf) => {
     if (!cpf || cpf.trim() == "")
         return "";
-    return Util.cleanNumero(cpf)
+    return Util.cleanNumber(cpf)
         .substring(0, 11)
         .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/gi, "$1.$2.$3-$4");
 };
@@ -60,7 +60,7 @@ exports.mascara_CPF = mascara_CPF;
 const mascara_CNPJ = (cnpj) => {
     if (!cnpj || cnpj.trim() == "")
         return "";
-    return Util.cleanNumero(cnpj)
+    return Util.cleanNumber(cnpj)
         .substring(0, 14)
         .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/gi, "$1.$2.$3/$4-$5");
 };
@@ -68,14 +68,14 @@ exports.mascara_CNPJ = mascara_CNPJ;
 const mascara_CPFCNPJ = (cpfcnpj) => {
     if (!cpfcnpj || cpfcnpj.trim() == "")
         return "";
-    let str = Util.cleanNumero(cpfcnpj);
+    let str = Util.cleanNumber(cpfcnpj);
     return str.length > 11 ? (0, exports.mascara_CNPJ)(str) : (0, exports.mascara_CPF)(str);
 };
 exports.mascara_CPFCNPJ = mascara_CPFCNPJ;
 const mascara_CNJ = (cnj, valid = false) => {
     if (!cnj || cnj.trim() == "")
         return "";
-    let limpo = Util.cleanNumero(cnj).padStart(20, "0");
+    let limpo = Util.cleanNumber(cnj).padStart(20, "0");
     let mask = limpo.replace(/(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})/g, "$1-$2.$3.$4.$5.$6");
     if (valid)
         return !(0, exports.ValidarCNJ)(mask) ? cnj : mask;
@@ -86,7 +86,7 @@ const mascara_VALOR = (value) => {
     if (Util.isNullOrEmpty(value))
         return "";
     let v = value.split(',');
-    let inteiro = Util.cleanNumero(v[0]);
+    let inteiro = Util.cleanNumber(v[0]);
     let decimal = v[1] == null || v[1] == '' ? '00' : v[1];
     value = `${inteiro}.${decimal}`;
     let conversao = new Intl.NumberFormat('pt-BR', { currency: 'BRL' }).format(value);

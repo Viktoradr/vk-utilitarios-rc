@@ -73,7 +73,7 @@ export const generateArray = (num: number) => Array.from({ length: num }, (_, i)
 
 export const cleanString = (str: string): string => !str || str.trim() == "" ? "" : str.replace(/\d+$/g, "")
 
-export const cleanNumero = (str: string): string => !str || str.trim() == "" ? "" : str.replace(/\D/g, "")
+export const cleanNumber = (str: string): string => !str || str.trim() == "" ? "" : str.replace(/\D/g, "")
 
 export const filter = (value: any, lista: any[], header: any[]): any[] => {
     if (!value || value == "") return lista
@@ -92,7 +92,7 @@ export const filter = (value: any, lista: any[], header: any[]): any[] => {
     return t
 }
 
-export const verificarExtensao = (nome: string) => {
+export const verifyExt = (nome: string) => {
     let ext = nome.split(".").pop() as string
     if (ext.search(/xlsx|csv|png|jpeg|jpg|doc|docx|pdf|txt|ppt/) == -1)
         return false
@@ -111,4 +111,10 @@ export const getCreditCardType = (accountNumber: any) => {
     else if (/^(34|37)/.test(accountNumber)) return "amex";
     else if (/^60/.test(accountNumber)) return "hipercard";
     else return ""
+}
+
+export const reduceText = (str: string, len: number = 500) => {
+    return isNullOrEmpty(str) ? "" : str.length > len
+        ? str.substring(0, len) + "..."
+        : str
 }

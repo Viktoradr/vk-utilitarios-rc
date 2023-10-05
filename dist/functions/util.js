@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateArray = exports.getCreditCardType = exports.verificarExtensao = exports.fileTypeIcons = exports.filter = exports.cleanNumero = exports.cleanString = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.request = exports.newId = void 0;
+exports.generateArray = exports.getCreditCardType = exports.verificarExtensao = exports.fileTypeIcons = exports.filter = exports.cleanNumber = exports.cleanString = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.request = exports.newId = void 0;
 const uuid_1 = require("uuid");
 const newId = () => (0, uuid_1.v4)();
 exports.newId = newId;
@@ -82,12 +82,12 @@ const cleanString = (str) => {
     return str.replace(/\d+$/g, "");
 };
 exports.cleanString = cleanString;
-const cleanNumero = (str) => {
+const cleanNumber = (str) => {
     if (!str || str.trim() == "")
         return "";
     return str.replace(/\D/g, "");
 };
-exports.cleanNumero = cleanNumero;
+exports.cleanNumber = cleanNumber;
 const filter = (value, lista, header) => {
     if (!value || value == "")
         return lista;
