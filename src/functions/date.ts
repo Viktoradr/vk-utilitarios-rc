@@ -2,9 +2,7 @@ import moment from 'moment';
 
 moment.locale('pt-br');
 
-export const getToday = (): moment.Moment => {
-    return moment()
-}
+export const getToday = (): moment.Moment => moment()
 
 export const getCompetencia = (data: any): Date => {
     return moment(moment(data).format("YYYY-MM-01")).toDate()
@@ -18,25 +16,17 @@ export const getDateFromString = (dt: any, format: string = "DD/MM/YYYY") => {
     return moment(dt, format)
 }
 
-export const getDate = (dt: any): Date => {
-    return moment(dt).toDate()
-}
+export const getDate = (dt: any): Date => moment(dt).toDate()
 
-export const getMoment = (dt: any): moment.Moment => {
-    return moment(dt)
-}
+export const getMoment = (dt: any): moment.Moment => moment(dt)
 
 export const addMinutes = (dt: any, mins: number): moment.Moment => {
     return getMoment(getMoment(dt).add(mins, 'minutes').format("YYYY-MM-DD HH:mm:ss"))
 }
 
-export const addDay = (dt: any, days = 1): moment.Moment => {
-    return moment(dt).add(days, 'days')
-}
+export const addDay = (dt: any, days = 1): moment.Moment => moment(dt).add(days, 'days')
 
-export const subDay = (dt: any, days = 1): moment.Moment => {
-    return moment(dt).subtract(days, 'days')
-}
+export const subDay = (dt: any, days = 1): moment.Moment => moment(dt).subtract(days, 'days')
 
 export const isDateSame = (dt1: any, dt2: any): boolean => {
     let dtx = moment.isMoment(dt1) ? dt1 : getDataString(dt1, "YYYY-MM-DD")

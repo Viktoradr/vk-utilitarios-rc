@@ -2,60 +2,52 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const newId = () => uuidv4()
 
-export const request = (url: string, param: any, query: boolean = false) => {
-    if (query) url += queryable(param);
-    else url += (param !== "" ? "/" + param : "");
-    return url;
-}
-
 export const queryable = (obj: any) => {
-    let query = '?';
-    Object.keys(obj).forEach(k => query += `${k}=${obj[k]}&`);
-    return query.substring(0, query.length - 1);
+    let query = '?'
+    Object.keys(obj).forEach(k => query += `${k}=${obj[k]}&`)
+    return query.substring(0, query.length - 1)
 }
 
-export const isObjectEmpty = (obj: any) => {
-    return Object.keys(obj).length === 0;
-}
+export const isObjectEmpty = (obj: any) => Object.keys(obj).length === 0
 
 export const isNullOrEmpty = (str: any): boolean => {
-    return str === undefined || str === null || str === "" || str.trim() == "";
+    return str === undefined || str === null || str === "" || str.trim() == ""
 }
 
 export const isDateValid = (dateStr: any): boolean => {
-    const regex = /^\d{4}-\d{2}-\d{2}$/;
+    const regex = /^\d{4}-\d{2}-\d{2}$/
 
     if (dateStr.match(regex) === null) {
-        return false;
+        return false
     }
 
-    const date = new Date(dateStr);
+    const date = new Date(dateStr)
 
-    const timestamp = date.getTime();
+    const timestamp = date.getTime()
 
     if (typeof timestamp !== 'number' || Number.isNaN(timestamp)) {
-        return false;
+        return false
     }
 
-    return date.toISOString().startsWith(dateStr);
+    return date.toISOString().startsWith(dateStr)
 }
 
 export const isEmailValid = (email: string): boolean => {
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(email)
 }
 
 export const isBirthValid = (data: string): boolean => {
-    const re = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
-    return re.test(data);
+    const re = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/
+    return re.test(data)
 }
 
 export const isCpfValid = (cpf: string): boolean => {
     cpf = cpf.replace(/[\s.-]*/igm, '')
 
-    const re = /(\d)\1{10}/;
+    const re = /(\d)\1{10}/
 
-    if (re.test(cpf)) return false;
+    if (re.test(cpf)) return false
 
     var soma = 0
     var resto
@@ -77,67 +69,34 @@ export const isCpfValid = (cpf: string): boolean => {
     return true
 }
 
-export const limparString = (str: string): string => {
-    if (!str || str.trim() == "") return "";
-    return str.replace(/\d+$/g, "");
-}
+export const generateArray = (num: number) => Array.from({ length: num }, (_, i) => i + 1)
 
-export const limparNumero = (str: string): string => {
-    if (!str || str.trim() == "") return "";
-    return str.replace(/\D/g, "");
-}
+export const cleanString = (str: string): string => !str || str.trim() == "" ? "" : str.replace(/\d+$/g, "")
+
+export const cleanNumero = (str: string): string => !str || str.trim() == "" ? "" : str.replace(/\D/g, "")
 
 export const filter = (value: any, lista: any[], header: any[]): any[] => {
-    if (!value || value == "") return lista;
+    if (!value || value == "") return lista
 
     var t = lista.filter((item: any) => {
-        let has = false;
+        let has = false
 
         header.forEach(head => {
             if (item.hasOwnProperty(head.key) && item[head.key] && item[head.key].toLowerCase().includes(value.toLowerCase())) {
-                has = true;
+                has = true
             }
-        });
+        })
 
-        if (has) return item;
-    });
-    return t;
-}
-
-export const fileTypeIcons = (ext: string): string => {
-    switch (ext) {
-        case "txt":
-            return "assets/imgs/icones/txt-azul.png";
-        case "doc":
-            return "assets/imgs/icones/docx-azul.png";
-        case "docx":
-            return "assets/imgs/icones/docx-azul.png";
-        case "pdf":
-            return "assets/imgs/icones/pdf-azul.png";
-        case "xls":
-            return "assets/imgs/icones/xlsx-azul.png";
-        case "xlsx":
-            return "assets/imgs/icones/xlsx-azul.png";
-        case "csv":
-            return "assets/imgs/icones/xlsx-azul.png";
-        case "ppt":
-            return "assets/imgs/icones/ppt-azul.png";
-        case "jpeg":
-            return "assets/imgs/icones/jpg-azul.png";
-        case "jpg":
-            return "assets/imgs/icones/jpg-azul.png";
-        case "png":
-            return "assets/imgs/icones/png-azul.png";
-        default:
-            return "assets/imgs/icones/pdf-azul.png";
-    }
+        if (has) return item
+    })
+    return t
 }
 
 export const verificarExtensao = (nome: string) => {
-    let ext = nome.split(".").pop() as string;
+    let ext = nome.split(".").pop() as string
     if (ext.search(/xlsx|csv|png|jpeg|jpg|doc|docx|pdf|txt|ppt/) == -1)
-        return false;
-    else return true;
+        return false
+    else return true
 }
 
 export const getCreditCardType = (accountNumber: any) => {
@@ -152,8 +111,4 @@ export const getCreditCardType = (accountNumber: any) => {
     else if (/^(34|37)/.test(accountNumber)) return "amex";
     else if (/^60/.test(accountNumber)) return "hipercard";
     else return ""
-}
-
-export const generateArray = (num: number) => {
-    return Array.from({ length: num }, (_, i) => i + 1);
 }

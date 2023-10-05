@@ -1,7 +1,7 @@
 {
   "name": "vk-utilitarios-rc",
   "version": "1.0.0",
-  "description": "Projeto onde se encontra utilitários para máscaras, datas, formulário e muito mais",
+  "description": "Projeto onde se encontra utilitários para máscaras, datas e muito mais",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

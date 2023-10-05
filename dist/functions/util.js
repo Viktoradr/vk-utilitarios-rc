@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateArray = exports.getCreditCardType = exports.verificarExtensao = exports.fileTypeIcons = exports.filter = exports.limparNumero = exports.limparString = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.request = exports.newId = void 0;
+exports.generateArray = exports.getCreditCardType = exports.verificarExtensao = exports.fileTypeIcons = exports.filter = exports.cleanNumero = exports.cleanString = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.request = exports.newId = void 0;
 const uuid_1 = require("uuid");
 const newId = () => (0, uuid_1.v4)();
 exports.newId = newId;
@@ -76,18 +76,18 @@ const isCpfValid = (cpf) => {
     return true;
 };
 exports.isCpfValid = isCpfValid;
-const limparString = (str) => {
+const cleanString = (str) => {
     if (!str || str.trim() == "")
         return "";
     return str.replace(/\d+$/g, "");
 };
-exports.limparString = limparString;
-const limparNumero = (str) => {
+exports.cleanString = cleanString;
+const cleanNumero = (str) => {
     if (!str || str.trim() == "")
         return "";
     return str.replace(/\D/g, "");
 };
-exports.limparNumero = limparNumero;
+exports.cleanNumero = cleanNumero;
 const filter = (value, lista, header) => {
     if (!value || value == "")
         return lista;
