@@ -23,17 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const util = __importStar(require("./functions/util"));
-console.log(util.generateArray(30));
-/*
-apos criar a conta no npm
-
-npm adduser
-informar username, password, email publico
-
-npm i -y
-
-apos enviar tudo atulizado para o github
-
-npm publish
-*/ 
+exports.date = exports.mask = exports.util = void 0;
+const _util = __importStar(require("./functions/util"));
+const _mask = __importStar(require("./functions/mask"));
+const _date = __importStar(require("./functions/date"));
+exports.util = _util;
+exports.mask = _mask;
+exports.date = _date;

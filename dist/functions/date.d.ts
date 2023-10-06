@@ -1,6 +1,6 @@
 import moment from 'moment';
 export declare const getToday: () => moment.Moment;
-export declare const getCompetencia: (data: any) => Date;
+export declare const getFirstDateOfMonth: (data: any) => Date;
 export declare const getDataString: (data: any, format?: string) => string;
 export declare const getDateFromString: (dt: any, format?: string) => moment.Moment;
 export declare const getDate: (dt: any) => Date;

@@ -3,17 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateWeekDays = exports.getCompetenciaAtual = exports.diffBetweenDays = exports.isDateSameBefore = exports.isDateBefore = exports.isDateSameAfter = exports.isDateAfter = exports.isDateSame = exports.subDay = exports.addDay = exports.addMinutes = exports.getMoment = exports.getDate = exports.getDateFromString = exports.getDataString = exports.getCompetencia = exports.getToday = void 0;
+exports.calculateWeekDays = exports.getCompetenciaAtual = exports.diffBetweenDays = exports.isDateSameBefore = exports.isDateBefore = exports.isDateSameAfter = exports.isDateAfter = exports.isDateSame = exports.subDay = exports.addDay = exports.addMinutes = exports.getMoment = exports.getDate = exports.getDateFromString = exports.getDataString = exports.getFirstDateOfMonth = exports.getToday = void 0;
 const moment_1 = __importDefault(require("moment"));
 moment_1.default.locale('pt-br');
-const getToday = () => {
-    return (0, moment_1.default)();
-};
+const getToday = () => (0, moment_1.default)();
 exports.getToday = getToday;
-const getCompetencia = (data) => {
+const getFirstDateOfMonth = (data) => {
     return (0, moment_1.default)((0, moment_1.default)(data).format("YYYY-MM-01")).toDate();
 };
-exports.getCompetencia = getCompetencia;
+exports.getFirstDateOfMonth = getFirstDateOfMonth;
 const getDataString = (data, format = "DD/MM/YYYY HH:mm") => {
     return (0, moment_1.default)(data).format(format);
 };
@@ -22,25 +20,17 @@ const getDateFromString = (dt, format = "DD/MM/YYYY") => {
     return (0, moment_1.default)(dt, format);
 };
 exports.getDateFromString = getDateFromString;
-const getDate = (dt) => {
-    return (0, moment_1.default)(dt).toDate();
-};
+const getDate = (dt) => (0, moment_1.default)(dt).toDate();
 exports.getDate = getDate;
-const getMoment = (dt) => {
-    return (0, moment_1.default)(dt);
-};
+const getMoment = (dt) => (0, moment_1.default)(dt);
 exports.getMoment = getMoment;
 const addMinutes = (dt, mins) => {
     return (0, exports.getMoment)((0, exports.getMoment)(dt).add(mins, 'minutes').format("YYYY-MM-DD HH:mm:ss"));
 };
 exports.addMinutes = addMinutes;
-const addDay = (dt, days = 1) => {
-    return (0, moment_1.default)(dt).add(days, 'days');
-};
+const addDay = (dt, days = 1) => (0, moment_1.default)(dt).add(days, 'days');
 exports.addDay = addDay;
-const subDay = (dt, days = 1) => {
-    return (0, moment_1.default)(dt).subtract(days, 'days');
-};
+const subDay = (dt, days = 1) => (0, moment_1.default)(dt).subtract(days, 'days');
 exports.subDay = subDay;
 const isDateSame = (dt1, dt2) => {
     let dtx = moment_1.default.isMoment(dt1) ? dt1 : (0, exports.getDataString)(dt1, "YYYY-MM-DD");
