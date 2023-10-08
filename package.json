@@ -6,8 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --declaration",
-    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts",
-    "publish": "npm publish --access public"
+    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts"
   },
   "keywords": [
     "máscara",
