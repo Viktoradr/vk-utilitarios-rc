@@ -32,11 +32,12 @@ const maskDateCard = (str) => {
         .replace(/(\d{2})(\d{4})/gi, "$1/$2");
 };
 exports.maskDateCard = maskDateCard;
-const maskDate = (str) => {
+const maskDate = (str, send = false) => {
+    const format = !send ? "$1/$2/$3" : "$3-$2-$1";
     return !str || str.trim() == "" ? "" : Util
         .cleanNumber(str)
         .substring(0, 10)
-        .replace(/(\d{2})(\d{2})(\d{4})/gi, "$1/$2/$3");
+        .replace(/(\d{2})(\d{2})(\d{4})/gi, format);
 };
 exports.maskDate = maskDate;
 const maskPhone = (str) => {

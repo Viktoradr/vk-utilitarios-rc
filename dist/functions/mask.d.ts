@@ -1,5 +1,5 @@
 export declare const maskDateCard: (str: string) => string;
-export declare const maskDate: (str: string) => string;
+export declare const maskDate: (str: string, send?: boolean) => string;
 export declare const maskPhone: (str: string) => string;
 export declare const maskCPF: (str: string) => string;
 export declare const maskCNPJ: (str: string) => string;
