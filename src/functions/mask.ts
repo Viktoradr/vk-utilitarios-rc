@@ -7,11 +7,12 @@ export const maskDateCard = (str: string) => {
         .replace(/(\d{2})(\d{4})/gi, "$1/$2")
 }
 
-export const maskDate = (str: string) => {
+export const maskDate = (str: string, send: boolean = false) => {
+    const format = !send ? "$1/$2/$3" : "$3-$2-$1"
     return !str || str.trim() == "" ? "" : Util
         .cleanNumber(str)
         .substring(0, 10)
-        .replace(/(\d{2})(\d{2})(\d{4})/gi, "$1/$2/$3")
+        .replace(/(\d{2})(\d{2})(\d{4})/gi, format)
 }
 
 export const maskPhone = (str: string) => {
