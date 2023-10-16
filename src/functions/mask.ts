@@ -1,4 +1,26 @@
+import { MaskType } from '../types/mask.type';
 import * as Util from './util';
+
+export const convertToMask = (value: string | number, type: MaskType): string | number => {
+    switch (type) {
+        case 'CNPJ':
+        return maskCNPJ(value.toString());
+        case 'CPF':
+            return maskCPF(value.toString());
+        case 'CPFCNPJ':
+            return maskCPFCNPJ(value.toString())
+        case 'CNJ':
+            return maskCNJ(value.toString())
+        case 'MONEY':
+            return maskCurrency(value.toString())
+        case 'CURRENCY':
+            return maskCurrencyIntl(value)
+        case 'CEP':
+            return maskCep(value.toString())
+        default:
+            return value
+    }
+}
 
 export const maskDateCard = (str: string) => {
     return !str || str.trim() == "" ? "" : Util
@@ -81,6 +103,13 @@ export const maskEmail = (email: string) => {
     let str1 = v[0].substring(0, 2)
     let str2 = v[1]
     return `${str1}*******@${str2}`
+}
+
+export const maskCep = (str: string) => {
+    return !str || str.trim() == "" ? "" : Util
+        .cleanNumber(str)
+        .substring(0, 8)
+        .replace(/(\d{5})(\d{3})/gi, "$1-$2")
 }
 
 export const maskCNJ = (cnj: string, valid = false) => {

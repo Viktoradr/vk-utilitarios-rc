@@ -92,13 +92,6 @@ export const filter = (value: any, lista: any[], header: any[]): any[] => {
     return t
 }
 
-export const verifyExt = (nome: string) => {
-    let ext = nome.split(".").pop() as string
-    if (ext.search(/xlsx|csv|png|jpeg|jpg|doc|docx|pdf|txt|ppt/) == -1)
-        return false
-    else return true
-}
-
 export const getCreditCardType = (accountNumber: any) => {
     if (
         /^(636368|655000|655007|506775|504175|5090|65165|65050)/.test(

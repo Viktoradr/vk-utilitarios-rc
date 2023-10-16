@@ -10,6 +10,6 @@ export declare const generateArray: (num: number) => number[];
 export declare const cleanString: (str: string) => string;
 export declare const cleanNumber: (str: string) => string;
 export declare const filter: (value: any, lista: any[], header: any[]) => any[];
-export declare const verifyExt: (nome: string) => boolean;
 export declare const getCreditCardType: (accountNumber: any) => "" | "elo" | "mastercard" | "visa" | "amex" | "hipercard";
 export declare const reduceText: (str: string, len?: number) => string;
+//# sourceMappingURL=util.d.ts.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reduceText = exports.getCreditCardType = exports.verifyExt = exports.filter = exports.cleanNumber = exports.cleanString = exports.generateArray = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.newId = void 0;
+exports.reduceText = exports.getCreditCardType = exports.filter = exports.cleanNumber = exports.cleanString = exports.generateArray = exports.isCpfValid = exports.isBirthValid = exports.isEmailValid = exports.isDateValid = exports.isNullOrEmpty = exports.isObjectEmpty = exports.queryable = exports.newId = void 0;
 const uuid_1 = require("uuid");
 const newId = () => (0, uuid_1.v4)();
 exports.newId = newId;
@@ -88,14 +88,6 @@ const filter = (value, lista, header) => {
     return t;
 };
 exports.filter = filter;
-const verifyExt = (nome) => {
-    let ext = nome.split(".").pop();
-    if (ext.search(/xlsx|csv|png|jpeg|jpg|doc|docx|pdf|txt|ppt/) == -1)
-        return false;
-    else
-        return true;
-};
-exports.verifyExt = verifyExt;
 const getCreditCardType = (accountNumber) => {
     if (/^(636368|655000|655007|506775|504175|5090|65165|65050)/.test(accountNumber))
         return "elo";

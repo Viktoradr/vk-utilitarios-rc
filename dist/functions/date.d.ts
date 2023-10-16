@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment = require('moment');
 export declare const getToday: () => moment.Moment;
 export declare const getFirstDateOfMonth: (data: any) => Date;
 export declare const getDataString: (data: any, format?: string) => string;
@@ -16,3 +16,4 @@ export declare const isDateSameBefore: (dt1: any, dt2: any) => boolean;
 export declare const diffBetweenDays: (dt1: any, dt2: any) => number;
 export declare const getCompetenciaAtual: () => any;
 export declare const calculateWeekDays: (value: Date) => Date[];
+//# sourceMappingURL=date.d.ts.map

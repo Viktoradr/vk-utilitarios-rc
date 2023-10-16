@@ -1,0 +1,1 @@
+export type MaskType = 'CPF'|'CNPJ'|'CNJ'|'CPFCNPJ'|'MONEY'|'CURRENCY'|'CEP';

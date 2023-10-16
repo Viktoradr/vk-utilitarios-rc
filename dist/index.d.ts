@@ -4,3 +4,4 @@ import * as _date from "./functions/date";
 export declare const util: typeof _util;
 export declare const mask: typeof _mask;
 export declare const date: typeof _date;
+//# sourceMappingURL=index.d.ts.map

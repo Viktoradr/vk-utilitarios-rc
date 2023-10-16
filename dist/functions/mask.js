@@ -23,8 +23,29 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.maskCNJ = exports.maskEmail = exports.maskCurrencyIntl = exports.maskCurrency = exports.maskCPFCNPJ = exports.maskCNPJ = exports.maskCPF = exports.maskPhone = exports.maskDate = exports.maskDateCard = void 0;
+exports.maskCNJ = exports.maskCep = exports.maskEmail = exports.maskCurrencyIntl = exports.maskCurrency = exports.maskCPFCNPJ = exports.maskCNPJ = exports.maskCPF = exports.maskPhone = exports.maskDate = exports.maskDateCard = exports.convertToMask = void 0;
 const Util = __importStar(require("./util"));
+const convertToMask = (value, type) => {
+    switch (type) {
+        case 'CNPJ':
+            return (0, exports.maskCNPJ)(value.toString());
+        case 'CPF':
+            return (0, exports.maskCPF)(value.toString());
+        case 'CPFCNPJ':
+            return (0, exports.maskCPFCNPJ)(value.toString());
+        case 'CNJ':
+            return (0, exports.maskCNJ)(value.toString());
+        case 'MONEY':
+            return (0, exports.maskCurrency)(value.toString());
+        case 'CURRENCY':
+            return (0, exports.maskCurrencyIntl)(value);
+        case 'CEP':
+            return (0, exports.maskCep)(value.toString());
+        default:
+            return value;
+    }
+};
+exports.convertToMask = convertToMask;
 const maskDateCard = (str) => {
     return !str || str.trim() == "" ? "" : Util
         .cleanNumber(str)
@@ -110,6 +131,13 @@ const maskEmail = (email) => {
     return `${str1}*******@${str2}`;
 };
 exports.maskEmail = maskEmail;
+const maskCep = (str) => {
+    return !str || str.trim() == "" ? "" : Util
+        .cleanNumber(str)
+        .substring(0, 8)
+        .replace(/(\d{5})(\d{3})/gi, "$1-$2");
+};
+exports.maskCep = maskCep;
 const maskCNJ = (cnj, valid = false) => {
     if (!cnj || cnj.trim() == "")
         return "";
