@@ -41,6 +41,8 @@ const convertToMask = (value, type) => {
             return (0, exports.maskCurrencyIntl)(value);
         case 'CEP':
             return (0, exports.maskCep)(value.toString());
+        case 'PHONE':
+            return (0, exports.maskPhone)(value.toString());
         default:
             return value;
     }
