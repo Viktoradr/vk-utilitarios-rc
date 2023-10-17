@@ -1,12 +1,12 @@
 {
   "name": "vk-utilitarios-rc",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Projeto onde se encontra utilitários para máscaras, datas e muito mais",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --declaration",
-    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts"    
+    "dev": "nodemon --watch \"src//\" --exec \"ts-node src/index.ts\" -e ts"
   },
   "keywords": [
     "máscara",
