@@ -43,7 +43,7 @@ export const maskPhone = (str: string) => {
     return !str || str.trim() == "" ? "" : Util
         .cleanNumber(str)
         .substring(0, 12)
-        .replace(/(\d{2})(\d{8,9})/gi, "($1) $2")
+        .replace(/(\d{2})(\d{4,5})(\d{4})/gi, "($1) $2-$3")
 }
 
 export const maskCPF = (str: string) => {
@@ -93,10 +93,10 @@ export const maskCurrency = (num: any, hasFormat = true) => {
     return ""
 }
 
-export const maskCurrencyIntl = (event: any) => {
+export const maskCurrencyIntl = (value: any) => {
     return new Intl
         .NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })
-        .format(event.target.value)
+        .format(value)
 }
 
 export const maskEmail = (email: string) => {
