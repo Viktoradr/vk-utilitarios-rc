@@ -17,6 +17,8 @@ export const convertToMask = (value: string | number, type: MaskType): string | 
             return maskCurrencyIntl(value)
         case 'CEP':
             return maskCep(value.toString())
+        case 'PHONE':
+            return maskPhone(value.toString())
         default:
             return value
     }
