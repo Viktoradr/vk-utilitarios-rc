@@ -10,14 +10,26 @@ export const queryable = (obj: any) => {
 
 export const isObjectEmpty = (obj: any) => Object.keys(obj).length === 0
 
-export const isNullOrEmpty = (str: any): boolean => {
-    return !str || str == "undefined" 
-    || str == null 
-    || str === null 
-    || str == "null" 
-    || str == "" 
-    || str === "" 
-    || ((typeof str) == 'string' ? (str as string).trim() == "" : false)
+export const isNullOrEmpty = (value: any | string | number): boolean => {
+
+    const verificador = (type: string) => {
+        switch (type) {
+            case 'string':
+                return (value as string).trim() == "";
+            default:
+                return false
+        }
+    }
+
+    const result = !value 
+    || value == "undefined" 
+    || value == null 
+    || value === null 
+    || value == "null" 
+    || value == "" 
+    || value === "";
+
+    return result ? true : verificador(typeof value)
 }
 
 export const isDateValid = (dateStr: any): boolean => {
