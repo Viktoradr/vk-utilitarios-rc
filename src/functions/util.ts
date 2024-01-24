@@ -11,7 +11,13 @@ export const queryable = (obj: any) => {
 export const isObjectEmpty = (obj: any) => Object.keys(obj).length === 0
 
 export const isNullOrEmpty = (str: any): boolean => {
-    return !str || str == null || str === null || str == "" || str === "" || ((typeof str) == 'string' ? str.trim() == "" : false)
+    return !str || str == "undefined" 
+    || str == null 
+    || str === null 
+    || str == "null" 
+    || str == "" 
+    || str === "" 
+    || ((typeof str) == 'string' ? (str as string).trim() == "" : false)
 }
 
 export const isDateValid = (dateStr: any): boolean => {
