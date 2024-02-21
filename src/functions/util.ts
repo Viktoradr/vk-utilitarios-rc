@@ -13,12 +13,8 @@ export const isObjectEmpty = (obj: any) => Object.keys(obj).length === 0
 export const isNullOrEmpty = (value: any | string | number): boolean => {
 
     const verificador = (type: string) => {
-        switch (type) {
-            case 'string':
-                return (value as string).trim() == "";
-            default:
-                return false
-        }
+        if (typeof(type) == 'string') return type.trim() == ""
+        else return false
     }
 
     const result = !value 
