@@ -11,21 +11,25 @@ export const queryable = (obj: any) => {
 export const isObjectEmpty = (obj: any) => Object.keys(obj).length === 0
 
 export const isNullOrEmpty = (value: any | string | number): boolean => {
-
-    const verificador = (type: string) => {
-        if (typeof(type) == 'string') return type.trim() == ""
+    if (value === undefined || value === null || value === "") return true
+    else {
+        if (typeof(value) == 'string') return value.trim() == ""
         else return false
     }
+    // const verificador = (type: string) => {
+    //     if (typeof(type) == 'string') return type.trim() == ""
+    //     else return false
+    // }
 
-    const result = !value 
-    || value == "undefined" 
-    || value == null 
-    || value === null 
-    || value == "null" 
-    || value == "" 
-    || value === "";
+    // const result = !value 
+    // || value == "undefined" 
+    // || value == null 
+    // || value === null 
+    // || value == "null" 
+    // || value == "" 
+    // || value === "";
 
-    return result ? true : verificador(typeof value)
+    // return result ? true : verificador(typeof value)
 }
 
 export const isDateValid = (dateStr: any): boolean => {
